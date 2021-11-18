@@ -1,5 +1,3 @@
-<<<<<<< HEAD
 this is first file
-=======
 Second Day of DevOps Class
->>>>>>> 0f2c184d3a77b85eb1b5bb2638b4e6dc6f595ef9
+git conflict test
