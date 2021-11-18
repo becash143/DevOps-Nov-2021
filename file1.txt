@@ -2,7 +2,7 @@ this is first file
 Second Day of DevOps Class
 git conflict test
  
-
+after conflicts is fixed
 
 
 new line added from here
