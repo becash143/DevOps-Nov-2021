@@ -5,6 +5,8 @@ services:
     image: mysql:5.7
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - anand    
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: somewordpress
@@ -18,6 +20,8 @@ services:
     image: wordpress:latest
     volumes:
       - wordpress_data:/var/www/html
+    networks:
+      - anand    
     ports:
       - "8000:80"
     restart: always
@@ -30,4 +34,6 @@ volumes:
   db_data: {}
   wordpress_data: {}
 
-
+networks:
+  anand:
+    driver: bridge
