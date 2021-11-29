@@ -1,0 +1,45 @@
+1
+ADD file ... in /
+28.28 MB
+2
+CMD ["bash"]
+0 B
+3
+LABEL maintainer=NGINX Docker Maintainers
+0 B
+4
+ENV NGINX_VERSION=1.21.4
+0 B
+5
+ENV NJS_VERSION=0.7.0
+0 B
+6
+ENV PKG_RELEASE=1~bullseye
+0 B
+7
+/bin/sh -c set -x
+24.01 MB
+8
+COPY file:65504f71f5855ca017fb64d502ce873a31b2e0decd75297a8fb0a287f97acf92 in /
+602 B
+9
+COPY file:0b866ff3fc1ef5b03c4e6c8c513ae014f691fb05d530257dfffd07035c1b75da in /docker-entrypoint.d
+895 B
+10
+COPY file:0fd5fca330dcd6a7de297435e32af634f29f7132ed0550d342cad9fd20158258 in /docker-entrypoint.d
+665 B
+11
+COPY file:09a214a3e07c919af2fb2d7c749ccbc446b8c10eb217366e5a65640ee9edcc25 in /docker-entrypoint.d
+1.36 KB
+12
+ENTRYPOINT ["/docker-entrypoint.sh"]
+0 B
+13
+EXPOSE 80
+0 B
+14
+STOPSIGNAL SIGQUIT
+0 B
+15
+CMD ["nginx" "-g" "daemon
+:wq!

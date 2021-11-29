@@ -1,0 +1,10 @@
+version: '3'
+services:
+  db:
+   image: 'mysql'
+   env_file:
+    - ./.env
+   environment:
+    - MYSQL_ROOT_PASSWRD=$PASSWORD
+   
+   
