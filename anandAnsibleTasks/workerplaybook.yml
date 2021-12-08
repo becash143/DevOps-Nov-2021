@@ -1,0 +1,14 @@
+---
+  - name: My Playbook on worker-node1
+    hosts: targetservers
+    become: yes
+    become_user: root
+    tasks:
+      - name: ensure apache is at the latest version
+        yum:
+          name: httpd
+          state: latest
+      - name: ensure apache is started
+        service:
+          name: httpd
+          state: started

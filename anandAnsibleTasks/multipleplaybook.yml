@@ -1,0 +1,37 @@
+---
+  # PLAY-1 - Create Webserver user and install/start webserver
+  - name: Create apache directories and username in worker node webserver
+    hosts: targetservers
+    become: yes
+    become_user: root
+    tasks:
+      - name:  create user apacheadmin
+        user:
+          name: apacheadmin
+          group: wheel
+          shell: /bin/bash
+          home: /home/webserver
+
+      - name: install httpd
+        yum:
+          name: httpd
+          state: installed
+      - name: start httpd
+        service:
+          name: httpd
+          state: started
+
+  # PLAY-2 - Install and Start Mysql Server
+  - name: Install MYSQL Server
+    hosts: targetservers
+    become: yes
+    become_user: root
+    tasks:
+      - name: Install MYSQL Server
+        yum:
+          name: mariadb-server
+          state: installed
+      - name: Start MYSQLD
+        service:
+          name: mariadb
+          state: started
