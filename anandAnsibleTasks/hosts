@@ -1,0 +1,2 @@
+[targetservers]
+worker-node1 ansible_host=182.93.64.55 ansible_user=root
