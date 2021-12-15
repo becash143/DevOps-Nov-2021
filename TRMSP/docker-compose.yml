@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  trmsdb:
+    image: mysql:8.0
+    container_name: trmsdb
+    volumes:
+      - /root/SampleApp/TRMSP/trmsdb:/var/lib/mysql
+    restart: always
+    environment:
+       MYSQL_ROOT_PASSWORD: "p@ssw0rd"
+       MYSQL_DATABASE: "trms"
+       MYSQL_USERNAME: "trms"
+       MYSQL_PASSWORD: "P@ssw0rd"
+    ports:
+      - 3306:3306
+    networks:
+      - trmsnetwork
+
+  trmsweb:
+    build: /root/SampleApp/TRMSP
+    image: php:7.2-apache
+    container_name: trmsweb
+    volumes:
+      - /root/SampleApp/TRMSP/trms:/var/www/html
+    depends_on:
+      - trmsdb
+    ports:
+      - 8088:80
+    restart: always
+    networks:
+      - trmsnetwork
+networks:
+  trmsnetwork:
+    driver: bridge
+
